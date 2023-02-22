@@ -1,8 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <persoane>
- <persoana id="1">
- <nume>Popescu</nume>
- <prenume>Ion</prenume>
- <varsta>23</varsta>
- </persoana>
+    <persoana id="1">
+        <nume>Popescu</nume>
+        <prenume>Ion</prenume>
+        <varsta>23</varsta>
+        <adresa>
+            <strada>1 Decembrie</strada>
+            <numar>107</numar>
+            <localitate>Iasi</localitate>
+            <judet>Iasi</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <ocupatia>Student</ocupatia>
+    </persoana>
+
+    <persoana id="2">
+        <nume>Ceica</nume>
+        <prenume>Sergiu</prenume>
+        <varsta>21</varsta>
+        <adresa>
+            <strada>Sarariei</strada>
+            <numar>148</numar>
+            <localitate>Iasi</localitate>
+            <judet>Iasi</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <ocupatia>Programator</ocupatia>
+    </persoana>
+
+    <persoana id="3">
+        <nume>Ciobanu</nume>
+        <prenume>Dan</prenume>
+        <varsta>28</varsta>
+        <adresa>
+            <strada>Stefan cel Mare</strada>
+            <numar>55</numar>
+            <localitate>Cluj</localitate>
+            <judet>Cluj</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <ocupatia>Medic</ocupatia>
+    </persoana>
+
+    <persoana id="4">
+        <nume>Popescu</nume>
+        <prenume>Maria</prenume>
+        <varsta>18</varsta>
+        <adresa>
+            <strada>Sfanta Maria</strada>
+            <numar>333</numar>
+            <localitate>Dorohoi</localitate>
+            <judet>Botosani</judet>
+            <tara>Romania</tara>
+        </adresa>
+        <ocupatia>Elev</ocupatia>
+    </persoana>
+
+    <persoana id="5">
+        <nume>Turcu</nume>
+        <prenume>Andrei</prenume>
+        <varsta>25</varsta>
+        <adresa>
+            <strada>Scolii</strada>
+            <numar>8</numar>
+            <localitate>Barlad</localitate>
+            <judet>Vaslui</judet>
+            <tara>Romania</tara>
+        </adresa>
+    </persoana>
+    <ocupatia>Contabil</ocupatia>
 </persoane>
