@@ -2,7 +2,7 @@
 
 <!DOCTYPE note[
 <!ELEMENT persoane (persoana+)>
-<!ELEMENT persoana (nume,prenume,varsta,adresa,ocupatia)>
+<!ELEMENT persoana (nume,prenume,varsta,adresa+,ocupatia)>
 <!ATTLIST id type ID >
 <!ELEMENT nume (#PCDATA)>
 <!ELEMENT prenume (#PCDATA)>
