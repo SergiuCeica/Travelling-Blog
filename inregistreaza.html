@@ -15,58 +15,38 @@
         </nav>
         <section id="registerSection">
         <div id="register">
-            <label for="username" class="form__label">Username</label><input type="text" name="username"/></p>
+            <h1>Formular inscriere</h1>
+            <h2>Castiga o vacanta pentru doua persoane in Guatemala</h2>
+            <div class="form-group" id="left">
+                <input type="text" name="Nume" placeholder="Nume"/>
 
-            <p>First Name: <input type="text"/></p>
+                <input type="text" name="Prenume" placeholder="Prenume"/>
 
-            <p>Last Name: <input type="text"/></p>
+                <input type="text" name="Email" placeholder="E-mail"/>
 
-            <p>Password: <input type="password"/></p>
+                <input type="password" name="Parola" placeholder="Parola"/>
 
-            <p>E-mail: <input type="text"/></p>
-
-            <p>Telefon: <input type="text"/></p>
-
-            <p>Sex:
+                <input type="text" name="Telefon" placeholder="Telefon"/>
                 <select>
+                    <option value="" disabled selected>Sex</option>
                     <option value="Masculin">Masculin</option>
                     <option value="Feminin">Feminin</option>
                 </select>
-            </p>
-            <label for="mancare">Macarea preferata:</label>
-            <input list="mancaruri" name="mancare" id="mancare">
-            <datalist id="mancaruri">
-                <option value="Cartofi prajiti">
-                <option value="Pizza">
-                <option value="Ciorba">
-                <option value="Piept de pui">
-                <option value="Salata">
-            </datalist>
-            <br/><br/>
-            <label for="culoare">Culoarea preferata:</label>
-            <input type="color" id="culoare" name="culoare"
-            value="#e66465">
-            <br/><br/>
-            <label for="data">Data nasterii:</label>
-            <input type="date" id="data" name="data">
-            <br/><br/>
-            <label for="ora">Ora nasterii:</label>
-            <input type="time" id="ora" name="ora">
-            <br/><br/>
-            <label for="varsta">Varsta:</label>
-            <input type="range" id="varsta" name="varsta">
-            <br/><br/>
-            <label for="adresa">Adresa paginii personale:</label>
-            <input type="url" id="adresa" name="adresa">
-
-            <p>Descriere:<textarea></textarea></p>
-
+            </div>
+            <div class="form-group">
+                <input type="color" id="culoare" name="culoare"
+                value="#e66465" placeholder="Culoarea preferata">
+                <input type="date" id="data" name="data">
+                <input type="time" id="ora" name="ora">
+                <input type="range" id="varsta" name="varsta">
+                <input type="url" id="adresa" name="adresa" placeholder="Adresa paginii personale">
+                <textarea placeholder="Descriere"></textarea>
+            </div>
             <p>
                 <input type="checkbox" id="conditions" value="Agree">
                 <label for="conditions"> I agree with the conditions</label><br>
+                <button>Inregistreaza</button>
             </p>
-
-            <button>Inregistreaza</button>
         </div>
     </section>
     </body>
