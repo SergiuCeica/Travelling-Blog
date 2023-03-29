@@ -1,0 +1,107 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    background-image: url('../imagini/rawimage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#landing{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+}
+#landing img{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+nav{
+    position: absolute;
+    display: flex;
+    align-self: baseline;
+    justify-self: baseline;
+    background: rgb(0, 0, 0,.4);
+    width: 100%;
+    justify-content: right;
+    border-bottom: 2px solid white;
+    z-index: 5;
+}
+nav a{
+    text-decoration: none;
+    color:#ffffff;
+    font-family: 'Raleway',sans-serif; 
+    font-size: 3vh; 
+    font-weight: 500;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    opacity: 0.8;
+}
+nav a:hover{
+    background: rgb(0, 0, 0,1);
+    opacity: 1;
+}
+#landing h1{
+    color: #ffffff; 
+    position: absolute;
+    font-family: 'Raleway',sans-serif; 
+    font-size: 14vh; 
+    font-weight: 800;
+    padding-top: 20px; 
+    margin: 0 0 24px; 
+    text-align: center; 
+    text-transform: uppercase;
+}
+#registerSection{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:100vh;
+}
+#register{
+    padding-top: 9vh;
+    width: 75%;
+    height: 100%;
+    background: rgb(255, 255, 255,0.7);
+    box-shadow: 10px 10px 5px black;
+    justify-self: center;
+    align-self: center;
+    position: absolute;
+    margin-top: 15%;
+}
+#register p,label{
+    color:black;
+    font-family: 'Raleway',sans-serif; 
+    font-size: 3vh; 
+    font-weight: 300;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+#info{
+    width: 100%;
+    height: 200px;
+    background-color: red;
+    position: relative;
+}
+#desen{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background-color: aqua;
+}
+#plansaDesen{
+    width: 100%;
+    height: 300px;
+}
