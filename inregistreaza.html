@@ -5,8 +5,10 @@
         <script src="js\script.js"></script>
     </head>
     <body>
+        <section id="back">
+            <img src="imagini\descarcare.jpg"/>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index.html">Acasa</a>
             <a href="inregistreaza.html">Inregistreaza</a>
             <a href="video.html">Video</a>
             <a href="despre.html">Despre</a>
@@ -17,7 +19,7 @@
         <div id="register">
             <h1>Formular inscriere</h1>
             <h2>Castiga o vacanta pentru doua persoane in Guatemala</h2>
-            <div class="form-group" id="left">
+            <div class="form-group">
                 <input type="text" name="Nume" placeholder="Nume"/>
 
                 <input type="text" name="Prenume" placeholder="Prenume"/>
@@ -42,12 +44,14 @@
                 <input type="url" id="adresa" name="adresa" placeholder="Adresa paginii personale">
                 <textarea placeholder="Descriere"></textarea>
             </div>
-            <p>
-                <input type="checkbox" id="conditions" value="Agree">
-                <label for="conditions"> I agree with the conditions</label><br>
-                <button>Inregistreaza</button>
-            </p>
+            <div class="centered">
+                <label for="conditions">Am citit termenii si conditiile
+                <input type="checkbox" value="Agree" id="condiitons">
+                </label>
+                <button class="button-3" role="button">Inregistreaza</button>
+            </div>
         </div>
+    </section>
     </section>
     </body>
 </html>

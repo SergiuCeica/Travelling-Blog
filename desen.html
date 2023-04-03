@@ -6,23 +6,74 @@
     </head>
     <body>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index.html">Acasa</a>
             <a href="inregistreaza.html">Inregistreaza</a>
             <a href="video.html">Video</a>
             <a href="despre.html">Despre</a>
             <a href="desen.html">Desen</a>
             <a href="invat.html">Invat</a>
         </nav>
-        <svg width="500" height="500">
-            <circle cx="250" cy="250" r="40" fill="url(#grad1)" />
-            <rect width="300" height="100" style="fill:url(#grad1)" />
-            <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
-                  <stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
-                </linearGradient>
-              </defs>
-              <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />
-        </svg>
+        <section id="svgSection">
+            <svg>
+                <!--<ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" />-->
+                <rect x="0" y="0" id="sky"/>
+                <circle cx="200" cy="70" r="85" id="sun" />
+                <polygon points="40,-50 -110,400 200,400" class="triangle" />
+                <polygon points="200,90 100,400 320,400" class="triangle" />
+                <g id="text">
+                    <text x="0" y="50vh" >TRAVEL</text>
+                </g>
+                <polygon points="300,20 150,400 470,400" class="triangle" />
+                <polygon points="120,60 20,400 250,400" class="triangle" />
+                <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#d5ff00;stop-opacity:1;" />
+                    <stop offset="100%" style="stop-color:#057a26;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="sunGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#F4CA34;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#F5F991;stop-opacity:1" />
+                        </linearGradient>
+                    <linearGradient id="gradMountain" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                        <stop offset="31%" style="stop-color:#00d4ff;stop-opacity:1" />
+                        <stop offset="59%" style="stop-color:#090979;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#020024;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="morningSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#757abf;stop-opacity:1" />
+                        <stop offset="60%" style="stop-color:#8583be;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#eab0d1;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="daySky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#b7eaff;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#94dfff;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="midDaySky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#2d91c2;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#1e528e;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="eveningSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1e528e;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#728a7c;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#e9ce5d;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="sleepSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#163C52;stop-opacity:1" />
+                        <stop offset="30%" style="stop-color:#4F4F47;stop-opacity:1" />
+                        <stop offset="60%" style="stop-color:#C5752D;stop-opacity:1" />
+                        <stop offset="80%" style="stop-color:#B7490F;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2F1107;stop-opacity:1" />
+                    </linearGradient>
+                    <linearGradient id="nightSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="30%" style="stop-color:#010A10;stop-opacity:1" />
+                        <stop offset="80%" style="stop-color:#59230B;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#2F1107;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect x="0" y="50vh" id="rect"/>
+                
+            </svg>
+        </section>
     </body>
 </html>

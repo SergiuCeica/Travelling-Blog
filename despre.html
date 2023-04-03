@@ -1,62 +1,71 @@
 <!DOCTYPE html>
     <head>
-        <title>Desre</title>
+        <title>Despre</title>
         <link rel="stylesheet" type="text/css" href="css\style.css"/>
         <script src="js\script.js"></script>
     </head>
     <body>
-        <nav>
-            <a href="index.html">Home</a>
+        <nav class="navBar">
+            <a href="index.html">Acasa</a>
             <a href="inregistreaza.html">Inregistreaza</a>
             <a href="video.html">Video</a>
             <a href="despre.html">Despre</a>
             <a href="desen.html">Desen</a>
             <a href="invat.html">Invat</a>
         </nav>
-        <h1>Travelling Blog</h1>
-
-        <h2>It is all about memories</h2>
-
-        <p><strong>We live in a world that is full of beauty</strong>, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open.</p>
-
-        <img src="imagini\images.jpg" alt="imagine"/>
-
-        <p><strong>The most visited</strong> countries in the world (2019) are:</p>
-
-        <table border="1px">
-            <tr>
-                <th>Country</th>
-                <th>Visitors</th>
-            </tr>
-            <tr>
-                <td>France</td>
-                <td>90 million</td>
-            </tr>
-            <tr> 
-                <td>Spain</td>
-                <td>83.7 million</td>
-            </tr>
-            <tr> 
-                <td>United States</td>
-                <td>79.3 million</td>
-            </tr>
-        </table>
-
-        <p>
-            Countries on my "Must visit" list:
-            <ul>
-                <li>Columbia</li>
-                <li>Mexic</li>
-                <li>Japan</li>
-            </ul>
-        </p>
+        <section id="twoSide">
+            <section id="left">
+                <div id="despre">
+                    <h1>Travelling Blog</h1>
         
-        <p>Another intersting blog about travelling:<br/>
-            <iframe src="https://theworldtravelguy.com" width="500px" height="300px"></iframe>
-        </p>
+                    <h2>It is all about memories</h2>
+        
+                    <p><strong>We live in a world that is full of beauty</strong>, charm and adventure. There is no end to the adventures we can have if only we seek them with our eyes open.</p>
+    
+                </div>
+            </section>
+            <section id="right">
+                <img src="imagini\castle.jpg" alt="imagine"/>
+            </section>
+        </section>
+        <section id="down">
+            <p>Cele mai vizitate tari din lume (2019) sunt:</p>
 
-        <hr/>
+            <table class="styled-table">
+                <tr>
+                    <th>Tara</th>
+                    <th>Vizitatori</th>
+                </tr>
+                <tr>
+                    <td>Franta</td>
+                    <td>90 milioane</td>
+                </tr>
+                <tr> 
+                    <td>Spania</td>
+                    <td>83.7 milioane</td>
+                </tr>
+                <tr> 
+                    <td>Statele Unite</td>
+                    <td>79.3 milioane</td>
+                </tr>
+            </table>
+
+            <p>
+                Tari pe care vreau sa le vizitez:
+                <ul>
+                    <li>Columbia</li>
+                    <li>Mexic</li>
+                    <li>Japonia</li>
+                </ul>
+            </p>
+            <p>Un alt blog interesant despre travelling:<br/>
+                <iframe src="https://theworldtravelguy.com" width="500px" height="300px"></iframe>
+            </p>
+        </section>
+    </section>
+    <footer>
         <p>&copy Ceica Sergiu - Programare Web</p>
+    </footer>
     </body>
 
 </html>
