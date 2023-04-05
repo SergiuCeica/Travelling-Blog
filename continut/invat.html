@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <head>
+        <title>Video</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script src="js/script.js"></script>
+        <meta charset="UTF-8">
+    </head>
+    <body onload="afiseazaData()">
+        <nav>
+            <a href="index.html">Acasa</a>
+            <a href="inregistreaza.html">Inregistreaza</a>
+            <a href="invat.html">Video</a>
+            <a href="despre.html">Despre</a>
+            <a href="desen.html">Desen</a>
+            <a href="invat.html">Invat</a>
+        </nav>
+        <section id="info">
+            <h1 id="infoH1">INFORMATII</h1>
+            <p id="data"></p>
+            <p id="url"></p>
+            <p id="locatie"></p>
+            <p id="browser"></p>    
+        </section>
+        <section id="userTable" style="text-align: center;">
+            <h1 id="tabelH1">TABEL</h1>
+            <table class="styled-table" id="tabelJS">
+                <tr>
+                    <th>Tara</th>
+                    <th>Vizitatori</th>
+                </tr>
+                <tr>
+                    <td>Franta</td>
+                    <td>90 milioane</td>
+                </tr>
+                <tr> 
+                    <td>Spania</td>
+                    <td>83.7 milioane</td>
+                </tr>
+                <tr> 
+                    <td>Statele Unite</td>
+                    <td>79.3 milioane</td>
+                </tr>
+            </table>
+            <input type="text" placeholder="Pozitie" style="margin-top: 3vh" id="position"/>
+            <input type="color" id="culoareTabel" name="culoareTabel" value="#e66465" placeholder="Culoarea preferata"><br>
+            <button class="button-3" onclick="addRow()">Adauga linie</button>
+            <button class="button-3" onclick="addColumn()">Adauga coloana</button>
+        </section>
+        <section id="desen">
+            <canvas id="plansaDesen">
+
+            </canvas>
+        </section>
+    </body>
+</html>
