@@ -66,6 +66,7 @@ nav a{
     font-weight: 500;
     padding-left: 2vh;
     padding-right: 2vh;
+    cursor: pointer;
     padding-top: 2vh;
     padding-bottom: 2vh;
 }

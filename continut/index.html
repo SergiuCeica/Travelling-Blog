@@ -2,23 +2,25 @@
     <head>
         <title>Home Page</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <script src="js/script.js"></script>
+        <script src="js/script.js" crossorigin="anonymous|use-credentials"></script>
         <meta charset="UTF-8">
     </head>
     <body>
-        <section id="landing">
-            <img src="imagini/descarcare.jpg" alt="bgk"/>
-            <h1>TRAVELLING</h1>
-            <h2>It is not what you look at that matters. It is what you see.</h2>
+        <header>
             <nav>
-                <a href="index.html">Acasa</a>
-                <a href="inregistreaza.html">Inregistreaza</a>
-                <a href="video.html">Video</a>
-                <a href="despre.html">Despre</a>
-                <a href="desen.html">Desen</a>
-                <a href="invat.html">Invat</a>
+                <a onclick="schimbaContinut('acasa')">Acasa</a>
+                <a onclick="schimbaContinut('inregistreaza')">Inregistreaza</a>
+                <a onclick="schimbaContinut('video')">Video</a>
+                <a onclick="schimbaContinut('despre')">Despre</a>
+                <a onclick="schimbaContinut('desen')">Desen</a>
+                <a onclick="schimbaContinut('invat')">Invat</a>
             </nav>
-        </section>
-        
+        </header>
+        <main id="continut">
+            
+        </main>
+        <footer>
+            <p>&copy Ceica Sergiu - Programare Web</p>
+        </footer>
     </body>
 </html>
