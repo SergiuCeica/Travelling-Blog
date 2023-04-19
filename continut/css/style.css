@@ -337,6 +337,13 @@ input[type="checkbox"]{
     height: 100vh;
     position: relative;
 }
+#persoaneHTML{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: block;
+    color: white;
+}
 #left{
     width: 50%;
     height: 100%;

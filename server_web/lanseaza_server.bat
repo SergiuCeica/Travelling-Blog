@@ -1,1 +1,1 @@
-python3 server_wev.py
+python3 server_web.py
