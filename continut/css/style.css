@@ -14,6 +14,9 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
 }
 #landing{
@@ -337,12 +340,14 @@ input[type="checkbox"]{
     height: 100vh;
     position: relative;
 }
-#persoaneHTML{
+.sectiuneNormala{
     width: 100%;
     height: 100vh;
     position: relative;
     display: block;
     color: white;
+    justify-content: center;
+    text-align: center;
 }
 #left{
     width: 50%;
@@ -572,6 +577,7 @@ footer{
     text-align: center;
     color:#ffffff;
     padding-top: 2vh;
+    margin-top: auto;
     padding-bottom: 2vh;
     border-top: 2px solid white;
 }

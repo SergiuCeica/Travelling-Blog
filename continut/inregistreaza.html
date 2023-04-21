@@ -4,14 +4,15 @@
         <div id="register">
             <h1>Formular inscriere</h1>
             <h2>Castiga o vacanta pentru doua persoane in Guatemala</h2>
+            <p id="warning" style="color:red;"></p>
             <div class="form-group">
-                <input type="text" name="Nume" placeholder="Nume"/>
+                <input type="text" name="Nume" placeholder="Nume" id="nume"/>
 
                 <input type="text" name="Prenume" placeholder="Prenume"/>
 
                 <input type="text" name="Email" placeholder="E-mail"/>
 
-                <input type="password" name="Parola" placeholder="Parola"/>
+                <input type="password" name="Parola" placeholder="Parola" id="parola"/>
 
                 <input type="text" name="Telefon" placeholder="Telefon"/>
                 <select>
@@ -33,7 +34,7 @@
                 <label for="conditions">Am citit termenii si conditiile
                 <input type="checkbox" value="Agree" id="condiitons">
                 </label>
-                <button class="button-3" role="button">Inregistreaza</button>
+                <button class="button-3" role="button" onclick="adaugaUtilizator(document.getElementById('nume').value,document.getElementById('parola').value)">Inregistreaza</button>
             </div>
         </div>
     </section>

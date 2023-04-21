@@ -1,21 +1,21 @@
 <!DOCTYPE html>
     <head>
-        <title>Home Page</title>
+        <title>Travelling Blog</title>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
         <script src="js/script.js" crossorigin="anonymous|use-credentials"></script>
         <meta charset="UTF-8">
     </head>
-    <body>
+    <body onload="schimbaContinut('acasa')">
         <header>
             <nav>
                 <a onclick="schimbaContinut('acasa')">Acasa</a>
-                <a onclick="schimbaContinut('inregistreaza')">Inregistreaza</a>
+                <a onclick="schimbaContinut('inregistreaza','js/persoane.js')">Inregistreaza</a>
                 <a onclick="schimbaContinut('video')">Video</a>
                 <a onclick="schimbaContinut('despre')">Despre</a>
                 <a onclick="schimbaContinut('desen')">Desen</a>
                 <a onclick="schimbaContinut('invat','js/script.js', 'afiseazaData')">Invat</a>
                 <a onclick="schimbaContinut('persoane','js/persoane.js', 'incarcaPersoane')">Persoane</a>
-                <a onclick="schimbaContinut('verifica')">Verifica</a>
+                <a onclick="schimbaContinut('verifica','js/persoane.js')">Verifica</a>
             </nav>
         </header>
         <main id="continut">

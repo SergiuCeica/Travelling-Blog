@@ -88,11 +88,11 @@ function schimbaContinut(resursa,jsFisier,jsFunctie){
                 elementScript.onload = function () {
                     console.log("hello");
                     if (jsFunctie) {
-                    window[jsFunctie]();
+                        window[jsFunctie]();
                     }
                 };
                 elementScript.src = jsFisier;
-                document.head.appendChild(elementScript);
+                document.body.appendChild(elementScript);
             } else {
                 if (jsFunctie) {
                     window[jsFunctie]();
