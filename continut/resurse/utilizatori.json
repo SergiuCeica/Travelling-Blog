@@ -1,1 +1,3 @@
-[{ "utilizator": "test", "parola": "test"}]
+[{ "utilizator": "test", "parola": "test"}
+,{"utilizator":"fadsf","parola":"asf"},{"utilizator":"fadsffds","parola":"asfs"},
+{"utilizator":"marcel","parola":"asd"},{"utilizator":"marcel","parola":""}]

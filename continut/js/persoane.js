@@ -2,23 +2,30 @@ function incarcaPersoane(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-           document.getElementById("persoaneHTML").innerHTML = this.responseText;
-           
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(this.response,"text/xml");
+            var table=document.getElementById("tabelPersoane");
+            console.log(xmlDoc);
+            x= xmlDoc.getElementsByTagName('persoana');
+            console.log(x);
+            for(i=0 ; i<x.length ; i++){
+                var persoana=x[i];
+                var tr=table.insertRow(1);
+                var tdNume= tr.insertCell();
+                var tdPrenume= tr.insertCell();
+                var tdVarsta= tr.insertCell();
+                var tdOcupatie= tr.insertCell();
+                tdNume.innerHTML=persoana.childNodes[1].innerHTML;
+                tdPrenume.innerHTML=persoana.childNodes[3].innerHTML;
+                tdVarsta.innerHTML=persoana.childNodes[5].innerHTML;
+                tdOcupatie.innerHTML=persoana.childNodes[7].innerHTML;
+            }
+            table.style="display:inline;";
+            document.getElementById("wait").style="display:none;";
         }
     };
     xhttp.open("GET", "resurse/persoane.xml", true);
     xhttp.send();
-    xmlDoc= this.responseXML;
-    var table = document.createElement('table');
-    x= xmlDoc.getElementsByTagName('persoana');
-    for(i=0 ; i<x.length ; i++){
-        var persoana=x[i];
-        var tr=table.insertRow();
-        var td= tr.insertCell();
-        td.colSpan=3;
-        td.innerHTML=persoana.getAttribute('nume');
-    }
-    document.body.appendChild(table);
 }
 
 function verificaUtilizator(nume,parola){
@@ -26,15 +33,18 @@ function verificaUtilizator(nume,parola){
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
            const user = JSON.parse(this.response);
-           if(nume == user[0].utilizator){
-                if(parola == user[0].parola){
-                    document.getElementById("result").innerHTML="Utilizatorul a fost gasit cu succes";
+           for(i=0;i<user.length;i++){
+                if(nume == user[i].utilizator){
+                        if(parola == user[i].parola){
+                            document.getElementById("result").innerHTML="Utilizatorul a fost gasit cu succes";
+                            break;
+                        }else{
+                            document.getElementById("result").innerHTML="Parola este gresita";
+                        }
                 }else{
-                    document.getElementById("result").innerHTML="Parola este gresita";
+                        document.getElementById("result").innerHTML="Numele de utilizator nu a fost gasit";
                 }
-           }else{
-                document.getElementById("result").innerHTML="Numele de utilizator nu a fost gasit";
-           }
+            }
         }
     };
     xhttp.open("GET", "resurse/utilizatori.json", true);

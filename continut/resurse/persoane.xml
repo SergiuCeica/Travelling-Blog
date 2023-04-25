@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE note[
+<!--<!DOCTYPE note[
 <!ELEMENT persoane (persoana+)>
 <!ELEMENT persoana (nume,prenume,varsta,adresa+,ocupatia)>
 <!ATTLIST id type ID >
@@ -14,7 +14,7 @@
 <!ELEMENT judet (#PCDATA)>
 <!ELEMENT tara (#PCDATA)>
 <!ELEMENT ocupatia (#PCDATA)>
-]>
+]>-->
 
 <persoane>
     <persoana id="1">

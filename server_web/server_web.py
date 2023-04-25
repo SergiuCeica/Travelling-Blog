@@ -1,95 +1,114 @@
 import socket
-import os # pentru dimensiunea fisierului
+import os
+import threading
+import gzip
+import json
+import traceback
 
-# creeaza un server socket
+
+def handle_request(clientsocket, address):
+    print ('S-a conectat un client.')
+    cerere = ''
+    linieDeStart = ''
+    while True:
+        data = clientsocket.recv(1024)
+        if not data: 
+            break
+        cerere = cerere + data.decode()
+        print ('S-a citit mesajul: \n---------------------------\n' + cerere + '\n---------------------------')
+        pozitie = cerere.find('\r\n')
+        if (pozitie > -1 and linieDeStart == ''):
+            linieDeStart = cerere[0:pozitie]
+            print ('S-a citit linia de start din cerere: ##### ' + linieDeStart + '#####')
+            break
+    print ('S-a terminat cititrea.')
+        
+    numeResursaCeruta = linieDeStart.split(' ')
+
+    if linieDeStart == '':
+            clientsocket.close()
+            print ("S-a terminat comunicarea cu clientul - nu s-a primit niciun mesaj.")
+            return
+
+    if numeResursaCeruta[0] == "POST":
+        start = cerere.find('{')
+        stop = cerere.find('}')+1
+        text = ""
+
+        for i in range(start,stop):
+            text+=cerere[i]
+       
+        fisier =  open("../continut/resurse/utilizatori.json", 'r')
+        input = fisier.read()
+        fisier.close()
+
+        print(input)
+        input = input.replace("]", ",")
+        print(input)
+        input = input + text + "]"
+        print(input)
+
+        fisier =  open("../continut/resurse/utilizatori.json", 'w')
+        fisier.write(input)
+        clientsocket.sendall('HTTP/1.1 200 OK\r\n'.encode("utf-8"))
+    
+    elif numeResursaCeruta[0] == "GET":
+        numeFisier = '../continut' + numeResursaCeruta[1]
+        fisier = None
+        try:
+            fisier = open(numeFisier,'rb')
+
+            numeExtensie = numeFisier[numeFisier.rfind('.')+1:]
+            tipuriMedia = {
+                'html': 'text/html; charset=utf-8',
+                'css': 'text/css; charset=utf-',
+                'js': 'text/javascript; charset=utf-8',
+                'png': 'image/png',
+                'jpg': 'image/jpeg',
+                'jpeg': 'image/jpeg',
+                'gif': 'image/gif',
+                'ico': 'image/x-icon',
+                'xml': 'application/xml; charset=utf-8',
+                'json': 'application/json; charset=utf-8'
+            }
+            tipMedia = tipuriMedia.get(numeExtensie,'text/plain; charset=utf-8')
+
+            buf =  fisier.read()
+            gzipBuffer = gzip.compress(buf)
+
+            clientsocket.sendall('HTTP/1.1 200 OK\r\n'.encode("utf-8"))
+            clientsocket.sendall(('Content-Length: ' + str(len(gzipBuffer)) + '\r\n').encode("utf-8"))
+            clientsocket.sendall(('Content-Type: ' + tipMedia +'\r\n').encode("utf-8"))
+            clientsocket.sendall(('Content-Encoding: gzip' + '\r\n').encode("utf-8"))
+            clientsocket.sendall('Server: My PW Server\r\n'.encode("utf-8"))
+            clientsocket.sendall('\r\n'.encode("utf-8"))
+
+            # trimit la server continutul compresat
+            clientsocket.send(gzipBuffer)
+        
+        except Exception as E:
+            msg = 'Eroare! Resursa ceruta ' + numeResursaCeruta[1] + ' nu a putut fi gasita!'
+            traceback.print_exc()
+            clientsocket.sendall('HTTP/1.1 404 Not Found\r\n'.encode("utf-8"))
+            clientsocket.sendall(('Content-Length: ' + str(len(msg.encode('utf-8'))) + '\r\n').encode("utf-8"))
+            clientsocket.sendall('Content-Type: text/plain; charset=utf-8\r\n'.encode("utf-8"))
+            clientsocket.sendall('Server: My PW Server\r\n'.encode("utf-8"))
+            clientsocket.sendall('\r\n'.encode("utf-8"))
+            clientsocket.sendall(msg.encode("utf-8"))
+        finally:
+            if fisier:
+                fisier.close()
+        clientsocket.close()
+        print ('S-a terminat comunicarea cu clientul.')
+
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# specifica ca serverul va rula pe portul 5678, accesibil de pe orice ip al serverului
 serversocket.bind(('', 5678))
-# serverul poate accepta conexiuni; specifica cati clienti pot astepta la coada
 serversocket.listen(5)
 
 while True:
-	print ('#########################################################################')
-	print ('Serverul asculta potentiali clienti.')
-	# asteapta conectarea unui client la server
-	# metoda `accept` este blocanta => clientsocket, care reprezinta socket-ul corespunzator clientului conectat
-	(clientsocket, address) = serversocket.accept()
-	print ('S-a conectat un client.')
-	# se proceseaza cererea si se citeste prima linie de text
-	cerere = ''
-	linieDeStart = ''
-	while True:
-		buf = clientsocket.recv(1024)
-		if len(buf) < 1:
-			break
-		cerere = cerere + buf.decode()
-		print ('S-a citit mesajul: \n---------------------------\n' + cerere + '\n---------------------------')
-		pozitie = cerere.find('\r\n')
-		if (pozitie > -1 and linieDeStart == ''):
-			linieDeStart = cerere[0:pozitie]
-			print ('S-a citit linia de start din cerere: ##### ' + linieDeStart + ' #####')
-			break
-	print ("S-a terminat cititrea.")
-	if linieDeStart == '':
-		clientsocket.close()
-		print ('S-a terminat comunicarea cu clientul - nu s-a primit niciun mesaj.')
-		continue
-	# interpretarea sirului de caractere `linieDeStart`
-	elementeLineDeStart = linieDeStart.split()
-	# TODO securizare
-	numeResursaCeruta = elementeLineDeStart[1]
-	if numeResursaCeruta == '/':
-		numeResursaCeruta = '/index.html'
-	
-	# calea este relativa la directorul de unde a fost executat scriptul
-	numeFisier = '../continut' + numeResursaCeruta
-	
-	fisier = None
-	try:
-		# deschide fisierul pentru citire in mod binar
-		fisier = open(numeFisier,'rb')
-		# tip media
-		numeExtensie = numeFisier[numeFisier.rfind('.')+1:]
-		tipuriMedia = {
-			'html': 'text/html; charset=utf-8',
-			'css': 'text/css; charset=utf-8',
-			'js': 'text/javascript; charset=utf-8',
-			'png': 'image/png',
-			'jpg': 'image/jpeg',
-			'jpeg': 'image/jpeg',
-			'gif': 'image/gif',
-			'ico': 'image/x-icon',
-			'xml': 'application/xml; charset=utf-8',
-			'json': 'application/json; charset=utf-8'
-		}
-		tipMedia = tipuriMedia.get(numeExtensie,'text/plain; charset=utf-8')
-		
-		# se trimite raspunsul
-		clientsocket.sendall(b'HTTP/1.1 200 OK\r\n')
-		clientsocket.sendall(b'Content-Length: ' + bytes(str(os.stat(numeFisier).st_size),'utf-8') + b'\r\n')
-		clientsocket.sendall(b'Content-Type: ' + bytes(tipMedia,'utf-8') +b'\r\n')
-		clientsocket.sendall(b'Server: My PW Server\r\n')
-		clientsocket.sendall(b'\r\n')
-		
-		# citeste din fisier si trimite la server
-		buf = fisier.read(1024)
-		while (buf):
-			clientsocket.send(buf)
-			buf = fisier.read(1024)
-	except IOError:
-		# daca fisierul nu exista trebuie trimis un mesaj de 404 Not Found
-		msg = 'Eroare! Resursa ceruta ' + numeResursaCeruta + ' nu a putut fi gasita!'
-		print (msg)
-		clientsocket.sendall(b'HTTP/1.1 404 Not Found\r\n')
-		clientsocket.sendall(b'Content-Length: ' + bytes(str(len(msg.encode('utf-8'))),'utf-8') + '\r\n')
-		clientsocket.sendall(b'Content-Type: text/plain; charset=utf-8\r\n')
-		clientsocket.sendall(b'Server: My PW Server\r\n')
-		clientsocket.sendall(b'\r\n')
-		clientsocket.sendall(msg)
-
-	finally:
-		if fisier is not None:
-			fisier.close()
-	clientsocket.close()
-	print ("S-a terminat comunicarea cu clientul.")
+    print ('Asteptam conexiuni...')
+    clientsocket, address = serversocket.accept()
+    print ('S-a stabilit conexiunea cu ' + str(address))
+    t = threading.Thread(target=handle_request, args=(clientsocket, address))
+    t.start()
 
