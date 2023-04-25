@@ -1,9 +1,11 @@
 <section id="info">
             <h1 id="infoH1">INFORMATII</h1>
-            <p id="data"></p>
-            <p id="url"></p>
-            <p id="locatie"></p>
-            <p id="browser"></p>    
+            <div style="padding-top: 10vh;">
+                <p id="data"></p>
+                <p id="url"></p>
+                <p id="locatie"></p>
+                <p id="browser"></p> 
+            </div>
         </section>
         <section id="userTable" style="text-align: center;">
             <h1 id="tabelH1">TABEL</h1>
@@ -26,12 +28,17 @@
                 </tr>
             </table>
             <input type="text" placeholder="Pozitie" style="margin-top: 3vh" id="position"/>
-            <input type="color" id="culoareTabel" name="culoareTabel" value="#e66465" placeholder="Culoarea preferata"><br>
+            <input type="color" id="culoareTabel" name="culoareTabel" value="#e66465"><br>
             <button class="button-3" onclick="addRow()">Adauga linie</button>
             <button class="button-3" onclick="addColumn()">Adauga coloana</button>
         </section>
         <section id="desen">
-            <canvas id="plansaDesen">
+            <div style="padding-top: 5vh;">
+                <input type="color" id="culoareDreptunghi" name="culoareTabel" value="#e66465">
+                <input type="color" id="culoareStroke" name="culoareTabel" value="#e66465">
+            </div>
+            <canvas id="plansaDesen" height="300px" width="500px">
 
             </canvas>
+            <h1 id="infoH1">DESEN</h1>
         </section>

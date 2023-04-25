@@ -79,8 +79,8 @@ function getCursorPosition(canvas, event) {
             cly=uly;
             uly=temp;
         }
-        ctx.fillStyle=document.getElementById("culoareTabel").value;
-        ctx.strokeStyle=document.getElementById("culoareTabel").value;
+        ctx.fillStyle=document.getElementById("culoareDreptunghi").value;
+        ctx.strokeStyle=document.getElementById("culoareStroke").value;
         ctx.fillRect(clx,cly,ulx - clx,uly - cly);
         ctx.strokeRect(clx,cly,ulx -clx,uly - cly);
         

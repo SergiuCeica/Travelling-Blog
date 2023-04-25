@@ -497,15 +497,16 @@ input[type="checkbox"]{
   }
 #info{
     width: 100%;
-    height:fit-content;
+    height:300px;
     position: relative;
-    margin-top: 10%;
-    background: url("../imagini/beach2.jpg");
+    margin-top: 6vh;
+    background: url("../imagini/countryside2.jpg");
     background-repeat: no-repeat;
     background-position-y: top;
     background-size:cover;
     padding-top: 2%;
     padding-bottom: 2%;
+    border-bottom: 2px solid white;
     overflow: hidden;
 }
 
@@ -552,15 +553,16 @@ i{
 }
 #userTable{
     width: 100%;
-    height: fit-content;
+    height: 300px;
     background-color: #2c974b;
     position: relative;
     text-align: right;
-    background: url("../imagini/countryside.jpg");
+    background: url("../imagini/countryside2.jpg");
     background-repeat: no-repeat;
     background-position-y: center;
     background-size:cover;
     display: block;
+    border-bottom: 2px solid white;
     padding-top:7vh;
     padding-bottom: 7vh;
 }
@@ -569,16 +571,22 @@ i{
     display: inline-block;
 }
 #plansaDesen{
-    width: 100%;
     position: relative;
-    height: 300px;
     z-index: 5;
+    background-color: #298e46;
+    border: 3px solid black;
 }
 #desen{
-    width: 100%;
-    height: 300px;
     position: relative;
     background-color: white;
+    background: url("../imagini/countryside2.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    width:100%;
+    height: fit-content;
+    text-align: center;
 }
 footer{
     background-color: #161032;
